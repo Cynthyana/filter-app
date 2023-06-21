@@ -1,0 +1,22 @@
+canvas{
+    animation-name: border;
+    animation-duration: 15s;
+    animation-iteration-count:infinite;
+}
+
+@keyframes border{
+    from{box-shadow: 1px 1px 30px pink;}
+    to{box-shadow: darksalmon;}
+    to{box-shadow: hotpink;}
+}
+
+h5{
+    font-size: 100px;
+   font-weight: bolder;
+   color:darkblue;
+    font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+}
+.save_button{
+    background-color:darkcyan;
+    font-size: 50px;
+}
