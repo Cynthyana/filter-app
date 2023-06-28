@@ -1,4 +1,8 @@
-function preload(){}
+noseX =0
+noseY = 0
+function preload(){
+    lipstick = loadImage('https://i.postimg.cc/PxFvYgkv/l1.png');
+}
 
 function setup(){
     canvas = createCanvas(500, 500);
@@ -6,8 +10,8 @@ function setup(){
     video = createCapture(VIDEO);
     video.size(500,500);
     video.hide();
-    poseNet= ml5.poseNet(video,modelLoaded);
-    poseNet.on('pose', gotPoses);
+    posenet= ml5.poseNet(video,modelLoaded);
+    posenet.on('pose', gotPoses);
 }
 
 function modelLoaded(){
@@ -17,13 +21,16 @@ function modelLoaded(){
 function gotPoses(results){
     if(results.length>0){
         console.log(results);
-        console.log('nose x = ' + results[0].pose.nose.x);
-        console.log('nose y = ' + results[0].nose.pose.y)
+        noseX = results[0].pose.nose.x -15;
+        noseY = results[0].pose.nose.y +20;
+        console.log('nose x = ' + noseX);
+        console.log('nose y = ' + noseY);
     }
 }
 
 function draw(){
     image(video,0,0,500,500);
+    image(lipstick, noseX,noseY, 50,50)
 }
 
 function take_snapshot(){
